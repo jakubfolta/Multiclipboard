@@ -8,7 +8,8 @@ import shelve
 import pyperclip
 import sys
 
-mcb_shelf = shelve.open('mcb', flag = 'n')
+mcb_shelf = shelve.open('mcb')
+# Add "flag = n" as a second argument when opening to clear shelf files.
 # Save clipboard content.
 if len(sys.argv) == 3 and sys.argv[1].lower() == 'save':
     mcb_shelf[sys.argv[2]] = pyperclip.paste()
@@ -25,5 +26,6 @@ elif len(sys.argv) == 2:
         
 
 mcb_shelf.close()
+
 
 
