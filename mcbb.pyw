@@ -13,6 +13,8 @@ import pyperclip
 
 mcbb_shelf = shelve.open(mcbb)
 # TODO: Save content under keyword.
+if len(sys.argv) == 3 and sys.argv[2] == 'save':
+    mcbb_shelf[] = pyperclip.paste
 
 # TODO: Copy all keywords to clipboard.
 
