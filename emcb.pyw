@@ -1,10 +1,10 @@
 #! python3
 
-# Usage : py.exe emcb.pyw save <keyword>
-#         py.exe emcb.pyw delete <keyword>
-#         py.exe emcb.pyw deleteall
-#         py.exe emcb.pyw list
-#         py.exe emcb.pyw <keyword>
+# Usage : py.exe emcb.pyw save <keyword> - Save clipboard content under keyword.
+#         py.exe emcb.pyw delete <keyword> - Delete keyword.
+#         py.exe emcb.pyw deleteall - Delete all keywords and open new file.
+#         py.exe emcb.pyw list - Copy all keywords from shelve file to clipboard.
+#         py.exe emcb.pyw <keyword> - Copy keyword content to clipboard.
 
 import sys
 import pyperclip
@@ -38,5 +38,3 @@ elif len(sys.argv) == 2 and sys.argv[1] in emcb_shelf:
     pyperclip.copy(emcb_shelf[sys.argv[1]])
     print('"{}" keyword content saved to clipboard.'.format(sys.argv[1]))
 emcb_shelf.close()
-
-
