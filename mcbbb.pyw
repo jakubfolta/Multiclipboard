@@ -10,3 +10,8 @@
 import sys
 import shelve
 import pyperclip
+# Open shelve file
+mc_shelf = shelve.open('mcbbb')
+# TODO: Save copied content under keyword to shelve file
+# TODO: Load keyword content back to the clipboard
+# TODO: Load to the clipboard all keywords from shelve file
