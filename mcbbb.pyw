@@ -21,7 +21,7 @@ elif len(sys.argv) == 2:
     if sys.argv[1] in mc_shelf:
         pyperclip.copy(mc_shelf[sys.argv[1]])
         print('Content copied to clipboard.')
-# TODO: Load to the clipboard all keywords from shelve file
+# Load to the clipboard all keywords from shelve file
     elif sys.argv[1].lower() == 'list':
         pyperclip.copy(str(list(mc_shelf.keys())))
         print('Saved keywords:\n{}'.format(list(mc_shelf.keys())))
