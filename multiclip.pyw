@@ -22,11 +22,11 @@ if len(sys.argv) == 3:
     if sys.argv[1].lower() == 'save':
         mc_shelf[sys.argv[2]] = pyperclip.paste()
         print('Content saved to shelve file under "{}" keyword.'.format(sys.argv[2]))
-        
-# Delete keyword from shelve file.
+
+# Delete keyword & its content from shelve file.
     elif sys.argv[1].lower() == 'del' and sys.argv[2] in mc_shelf:
         del mc_shelf[sys.argv[2]]
-        print('"{}" and its content deleted from shelve file.')
+        print('"{}" keyword and its content deleted from shelve file.'.format(sys.argv[2]))
 
 # Copy to clipboard list of all keywords.
 elif len(sys.argv) == 2:
@@ -34,12 +34,12 @@ elif len(sys.argv) == 2:
         pyperclip.copy(str(list(mc_shelf.keys())))
         print('Keywords: {} \ncopied to clipboard.'.format(list(mc_shelf.keys())))
 
-# TODO: Copy to clipboard content of keyword.
+# Copy to clipboard content of keyword.
     elif sys.argv[1] in mc_shelf:
         pyperclip.copy(mc_shelf[sys.argv[1]])
-        print('"{}" content copied to clipboard'.format(sys.argv[1]))
+        print('"{}" content copied to clipboard.'.format(sys.argv[1]))
 
-# TODO: Delete keyword content.
-
-
-# TODO: Open new clean file.
+# Open new clean file.
+    elif sys.argv[1].lower() == 'delall':
+        mc_shelf = shelve.open('multiclip', flag = 'n')
+        print('New shelve file created.')
