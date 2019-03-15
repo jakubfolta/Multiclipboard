@@ -16,9 +16,12 @@ import shelve
 mc_shelf = shelve.open('multiclip')
 
 # Save content to shelve.
-if len(sys.argv) == 3 and sys.argv[1].lower() == 'save':
-    mc_shelf[sys.argv[2]] = pyperclip.paste()
-    print('Content saved to shelve file under "{}" keyword.'.format(sys.argv[2]))
+if len(sys.argv) == 3:
+    if sys.argv[1].lower() == 'save':
+        mc_shelf[sys.argv[2]] = pyperclip.paste()
+        print('Content saved to shelve file under "{}" keyword.'.format(sys.argv[2]))
+    elif sys.argv[1].lower() == 'del' and sys.argv[2] in mc_shelf:
+        del mc_shelf[sys.argv[2]]
 
 # Copy to clipboard list of all keywords.
 elif len(sys.argv) == 2:
